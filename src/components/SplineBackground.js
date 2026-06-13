@@ -150,36 +150,36 @@ const SplineBackground = ({ onLoad }) => {
 
   return (
     <div className={`fixed inset-0 ${isMobile ? 'z-0' : 'z-[1]'}`}>
-      {isMobile ? (
-        <MobileStarBackground />
-      ) : (
+      {/* Star backdrop behind the robot */}
+      <MobileStarBackground />
+
+      <div
+        ref={containerRef}
+        className="fixed inset-0"
+        style={{
+          width: '100vw',
+          height: '100vh',
+          overflow: 'hidden',
+          position: 'fixed',
+          top: 0,
+          left: 0,
+        }}
+      >
         <div
-          ref={containerRef}
-          className="fixed inset-0"
+          className="spline-wrapper"
           style={{
+            position: 'fixed',
+            top: 0,
+            left: '50%',
+            transform: 'translateX(-50%)',
             width: '100vw',
             height: '100vh',
             overflow: 'hidden',
-            position: 'fixed',
-            top: 0,
-            left: 0,
+            pointerEvents: isMobile ? 'none' : 'auto',
+            zIndex: 1,
           }}
         >
-          <div
-            className="spline-wrapper"
-            style={{
-              position: 'fixed',
-              top: 0,
-              left: '50%',
-              transform: 'translateX(-50%)',
-              width: '100vw',
-              height: '100vh',
-              overflow: 'hidden',
-              pointerEvents: 'auto',
-              zIndex: 1,
-            }}
-          >
-            {shouldRenderSpline && currentSceneUrl && (
+          {shouldRenderSpline && currentSceneUrl && (
               <Spline
                 key={currentSceneUrl}
                 ref={splineRef}
@@ -248,7 +248,7 @@ const SplineBackground = ({ onLoad }) => {
                   width: '100%',
                   height: '100%',
                   display: 'block',
-                  pointerEvents: 'auto',
+                  pointerEvents: isMobile ? 'none' : 'auto',
                   touchAction: 'auto',
                   userSelect: 'auto',
                 }}
@@ -256,21 +256,22 @@ const SplineBackground = ({ onLoad }) => {
             )}
           </div>
 
-          {/* Branding badge */}
-          <div
-            className="fixed z-[2] flex items-center justify-center bg-gradient-to-r from-neon-blue to-stellar-blue text-white font-orbitron font-bold tracking-[0.25em] text-sm rounded-tl-2xl shadow-lg shadow-neon-blue/30"
-            style={{
-              bottom: 0,
-              right: 0,
-              minWidth: '180px',
-              height: '60px',
-              pointerEvents: 'none',
-            }}
-          >
-            ROBOTIC
-          </div>
+          {/* Branding badge (desktop only) */}
+          {!isMobile && (
+            <div
+              className="fixed z-[2] flex items-center justify-center bg-gradient-to-r from-neon-blue to-stellar-blue text-white font-orbitron font-bold tracking-[0.25em] text-sm rounded-tl-2xl shadow-lg shadow-neon-blue/30"
+              style={{
+                bottom: 0,
+                right: 0,
+                minWidth: '180px',
+                height: '60px',
+                pointerEvents: 'none',
+              }}
+            >
+              ROBOTIC
+            </div>
+          )}
         </div>
-      )}
     </div>
   );
 };
