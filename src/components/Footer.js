@@ -1,8 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Bot } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
+  const { t } = useTranslation();
   return (
     <footer className="relative bg-transparent z-[30]" style={{ pointerEvents: 'none' }}>
       <div className="container mx-auto px-6 relative z-[30]" style={{ pointerEvents: 'none' }}>
@@ -23,14 +25,14 @@ const Footer = () => {
           </motion.div>
 
           <p className="text-gray-400 font-montserrat max-w-xl">
-            The Operating System For Autonomous Work.
+            {t('footer.tagline')}
           </p>
         </div>
 
         {/* Bottom Footer */}
         <div className="py-4 border-t border-neon-blue/20">
           <div className="text-gray-500 font-montserrat text-sm" style={{ pointerEvents: 'none' }}>
-            © {new Date().getFullYear()} ROBOTIC — The Autonomous Workforce.
+            © {new Date().getFullYear()} {t('footer.rights')}
           </div>
         </div>
       </div>

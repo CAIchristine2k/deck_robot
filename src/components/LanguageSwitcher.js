@@ -4,13 +4,8 @@ import { useTranslation } from 'react-i18next';
 import { Globe, Check } from 'lucide-react';
 
 const LANGUAGES = [
-  { code: 'en', label: 'English', short: 'EN' },
   { code: 'fr', label: 'Français', short: 'FR' },
-  { code: 'es', label: 'Español', short: 'ES' },
-  { code: 'pt', label: 'Português', short: 'PT' },
-  { code: 'de', label: 'Deutsch', short: 'DE' },
-  { code: 'nl', label: 'Nederlands', short: 'NL' },
-  { code: 'zh', label: '中文', short: 'ZH' },
+  { code: 'en', label: 'English', short: 'EN' },
 ];
 
 const LanguageSwitcher = () => {

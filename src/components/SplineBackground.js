@@ -255,6 +255,20 @@ const SplineBackground = ({ onLoad }) => {
               />
             )}
           </div>
+
+          {/* Branding badge */}
+          <div
+            className="fixed z-[2] flex items-center justify-center bg-gradient-to-r from-neon-blue to-stellar-blue text-white font-orbitron font-bold tracking-[0.25em] text-sm rounded-tl-2xl shadow-lg shadow-neon-blue/30"
+            style={{
+              bottom: 0,
+              right: 0,
+              minWidth: '180px',
+              height: '60px',
+              pointerEvents: 'none',
+            }}
+          >
+            ROBOTIC
+          </div>
         </div>
       )}
     </div>

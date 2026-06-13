@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import {
   Bot,
   TrendingDown,
@@ -7,18 +8,13 @@ import {
   RefreshCw,
   ShieldAlert,
   Activity,
-  Sparkles,
   Cpu,
-  CircuitBoard,
   Network,
   Globe2,
   Utensils,
   Repeat,
-  Wallet,
-  Database,
   Wrench,
   Megaphone,
-  Target,
   ArrowRight,
 } from 'lucide-react';
 import { useLoading } from '../contexts/LoadingContext';
@@ -57,9 +53,21 @@ const Page = ({ id, eyebrow, children, className = '' }) => (
 
 // Small chip / tag
 const Chip = ({ children }) => (
-  <span className="inline-flex items-center px-4 py-2 rounded-full border border-white/10 bg-white/5 text-star-white text-sm font-montserrat">
+  <span className="inline-flex items-center px-4 py-2 rounded-full border border-white/10 bg-space-dark/80 text-star-white text-sm font-montserrat">
     {children}
   </span>
+);
+
+// Styled bullet list with neon dots
+const BulletList = ({ items, className = '' }) => (
+  <ul className={`space-y-3 ${className}`}>
+    {items.map((it, i) => (
+      <li key={i} className="flex items-start gap-3 text-gray-300 font-montserrat text-body">
+        <span className="mt-2 w-1.5 h-1.5 rounded-full bg-neon-blue flex-shrink-0 shadow-[0_0_6px_#00D9FF]" />
+        <span>{it}</span>
+      </li>
+    ))}
+  </ul>
 );
 
 // Feature card with icon
@@ -76,6 +84,7 @@ const IconCard = ({ icon: Icon, title, desc }) => (
 );
 
 const Home = () => {
+  const { t } = useTranslation();
   const [showContent, setShowContent] = useState(false);
   const { hasLoadingCompleted } = useLoading();
 
@@ -85,6 +94,12 @@ const Home = () => {
       return () => clearTimeout(timer);
     }
   }, [hasLoadingCompleted]);
+
+  // Helper to fetch arrays/objects from translations
+  const tt = (key) => t(key, { returnObjects: true });
+
+  const problemIcons = [TrendingDown, Users, RefreshCw, ShieldAlert, Activity];
+  const fundraisingIcons = [Wrench, Cpu, Megaphone, Users];
 
   return (
     <div
@@ -104,49 +119,42 @@ const Home = () => {
                 <Bot className="w-6 h-6 text-neon-blue" />
               </div>
               <span className="text-caption font-orbitron text-neon-blue tracking-[0.4em]">
-                ROBOTIC
+                {t('robotic.cover.brand')}
               </span>
             </div>
 
-            <h1 className="text-heading-1 font-bold font-orbitron mb-6">
-              <span className="gradient-text">The Autonomous Workforce</span>
+            <h1 className="text-heading-1 font-bold font-orbitron mb-6 uppercase">
+              <span className="gradient-text">{t('robotic.cover.title')}</span>
             </h1>
 
             <p className="text-body-large text-gray-300 font-montserrat max-w-2xl mb-8">
-              L'intelligence artificielle physique au service des entreprises.
+              {t('robotic.cover.subtitle')}
             </p>
 
             <div className="flex flex-wrap gap-3">
-              <Chip>Hospitality</Chip>
-              <Chip>Retail</Chip>
-              <Chip>Healthcare</Chip>
-              <Chip>Logistics</Chip>
+              {tt('robotic.cover.sectors').map((c) => (
+                <Chip key={c}>{c}</Chip>
+              ))}
             </div>
           </motion.div>
         </div>
       </section>
 
       {/* ============ PAGE 2 — THE BIG PROBLEM ============ */}
-      <Page eyebrow="PAGE 2 — THE BIG PROBLEM">
+      <Page eyebrow={t('robotic.problem.eyebrow')}>
         <Reveal>
           <h2 className="text-heading-2 font-bold font-orbitron text-star-white mb-4">
-            The Global Labor Crisis
+            {t('robotic.problem.title')}
           </h2>
           <p className="text-body-large text-gray-300 font-montserrat mb-12">
-            Le monde manque de travailleurs. Les entreprises font face à :
+            {t('robotic.problem.intro')}
           </p>
         </Reveal>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-14">
-          {[
-            { icon: TrendingDown, title: 'Hausse des coûts salariaux', desc: 'Une masse salariale en croissance continue.' },
-            { icon: Users, title: "Pénurie de main-d'œuvre", desc: 'Recruter devient de plus en plus difficile.' },
-            { icon: RefreshCw, title: 'Turnover massif', desc: 'Difficulté à fidéliser les équipes.' },
-            { icon: ShieldAlert, title: 'Contraintes réglementaires', desc: 'Une pression réglementaire croissante.' },
-            { icon: Activity, title: 'Baisse de productivité', desc: 'Un service parfois dégradé.' },
-          ].map((item, i) => (
+          {tt('robotic.problem.cards').map((item, i) => (
             <Reveal key={item.title} delay={i * 0.05}>
-              <IconCard {...item} />
+              <IconCard icon={problemIcons[i]} title={item.title} desc={item.desc} />
             </Reveal>
           ))}
         </div>
@@ -156,75 +164,34 @@ const Home = () => {
             <div className="flex items-center gap-2 mb-4">
               <Utensils className="w-5 h-5 text-neon-blue" />
               <h3 className="text-lg font-bold font-orbitron text-star-white">
-                Dans la restauration
+                {t('robotic.problem.restaurant.title')}
               </h3>
             </div>
-            <ul className="space-y-2 text-gray-300 font-montserrat text-body">
-              <li>• Plus de 30 à 40% du chiffre d'affaires part dans la masse salariale</li>
-              <li>• Difficulté à recruter</li>
-              <li>• Difficulté à fidéliser</li>
-              <li>• Service parfois dégradé</li>
-            </ul>
+            <BulletList items={tt('robotic.problem.restaurant.items')} />
             <p className="text-body-large text-star-white font-montserrat mt-6">
-              Le modèle économique actuel devient de moins en moins viable.
-            </p>
-          </div>
-        </Reveal>
-      </Page>
-
-      {/* ============ PAGE 3 — WHY NOW ============ */}
-      <Page eyebrow="PAGE 3 — WHY NOW">
-        <Reveal>
-          <h2 className="text-heading-2 font-bold font-orbitron text-star-white mb-4">
-            The Perfect Storm
-          </h2>
-          <p className="text-body-large text-gray-300 font-montserrat mb-3">
-            Pendant 20 ans, les robots n'étaient pas prêts.
-          </p>
-          <p className="text-body-large text-gray-300 font-montserrat mb-12">
-            Aujourd'hui, trois révolutions convergent :
-          </p>
-        </Reveal>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-          {[
-            { icon: Sparkles, title: 'IA Générative', desc: 'GPT, LLM, agents autonomes.' },
-            { icon: Cpu, title: 'Robotique avancée', desc: 'Capteurs, moteurs, navigation.' },
-            { icon: CircuitBoard, title: 'Réduction des coûts hardware', desc: 'Les composants deviennent accessibles.' },
-          ].map((item, i) => (
-            <Reveal key={item.title} delay={i * 0.1}>
-              <IconCard {...item} />
-            </Reveal>
-          ))}
-        </div>
-
-        <Reveal>
-          <div className="neon-border rounded-xl p-8 bg-white/5">
-            <p className="text-caption font-orbitron text-neon-blue mb-2">
-              Pour la première fois dans l'histoire
-            </p>
-            <p className="text-heading-3 font-bold font-orbitron text-star-white">
-              Un employé robotique autonome devient économiquement rentable.
+              {t('robotic.problem.restaurant.conclusion')}
             </p>
           </div>
         </Reveal>
       </Page>
 
       {/* ============ PAGE 4 — THE SOLUTION ============ */}
-      <Page eyebrow="PAGE 4 — THE SOLUTION">
+      <Page eyebrow={t('robotic.solution.eyebrow')}>
         <Reveal>
           <h2 className="text-heading-2 font-bold font-orbitron mb-4">
-            <span className="gradient-text">ROBOTIC AI WORKER</span>
+            <span className="gradient-text">{t('robotic.solution.title')}</span>
           </h2>
           <p className="text-body-large text-gray-300 font-montserrat mb-12 max-w-3xl">
-            Le premier employé robotique connecté à l'ensemble du système de l'entreprise.
+            {t('robotic.solution.subtitle')}
           </p>
         </Reveal>
 
         <Reveal>
-          <h3 className="text-lg font-bold font-orbitron text-star-white mb-4">Capabilités</h3>
+          <h3 className="text-lg font-bold font-orbitron text-star-white mb-4">
+            {t('robotic.solution.capabilitiesTitle')}
+          </h3>
           <div className="flex flex-wrap gap-3 mb-14">
-            {['Accueil client', 'Service', 'Livraison', 'Nettoyage', 'CRM', 'Fidélisation', 'Vision IA', 'Supervision temps réel'].map((c) => (
+            {tt('robotic.solution.capabilities').map((c) => (
               <Chip key={c}>{c}</Chip>
             ))}
           </div>
@@ -234,299 +201,187 @@ const Home = () => {
           <div className="card border-neon-blue/20">
             <div className="flex items-center gap-2 mb-4">
               <Network className="w-5 h-5 text-neon-blue" />
-              <h3 className="text-lg font-bold font-orbitron text-star-white">Connected Workforce</h3>
+              <h3 className="text-lg font-bold font-orbitron text-star-white">
+                {t('robotic.solution.connected.title')}
+              </h3>
             </div>
             <p className="text-gray-300 font-montserrat mb-4">
-              Le robot ne travaille pas seul. Il est connecté à :
+              {t('robotic.solution.connected.intro')}
             </p>
             <div className="flex flex-wrap gap-3 mb-6">
-              {['Réservations', 'Paiements', 'CRM', 'Programme fidélité', 'Logiciel restaurant', 'Application mobile'].map((c) => (
+              {tt('robotic.solution.connected.items').map((c) => (
                 <Chip key={c}>{c}</Chip>
               ))}
             </div>
             <p className="text-body-large text-star-white font-montserrat">
-              Un robot devient un collaborateur numérique complet.
+              {t('robotic.solution.connected.conclusion')}
             </p>
           </div>
         </Reveal>
       </Page>
 
       {/* ============ PAGE 5 — MARKET OPPORTUNITY ============ */}
-      <Page eyebrow="PAGE 5 — MARKET OPPORTUNITY">
+      <Page eyebrow={t('robotic.market.eyebrow')}>
         <Reveal>
           <h2 className="text-heading-2 font-bold font-orbitron text-star-white mb-4">
-            A Trillion Dollar Shift
+            {t('robotic.market.title')}
           </h2>
           <p className="text-body-large text-gray-300 font-montserrat mb-12 max-w-3xl">
-            La robotisation des services est l'une des plus grandes transformations économiques du XXIe siècle.
+            {t('robotic.market.intro')}
           </p>
         </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-14">
-          {[
-            { tag: 'TAM', label: 'Robotique + IA + Services', value: '500 Md€+' },
-            { tag: 'SAM', label: 'Hospitality Europe', value: '80 Md€+' },
-            { tag: 'SOM', label: 'France', value: '175 000+ restaurants' },
-          ].map((m, i) => (
-            <Reveal key={m.tag} delay={i * 0.1}>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {tt('robotic.market.regions').map((r, i) => (
+            <Reveal key={r.name} delay={i * 0.1}>
               <div className="card card-hover h-full">
-                <div className="text-caption font-orbitron text-neon-blue tracking-[0.3em] mb-3">{m.tag}</div>
-                <div className="text-2xl font-bold font-orbitron gradient-text mb-2">{m.value}</div>
-                <p className="text-body text-gray-400 font-montserrat">{m.label}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-
-        <Reveal>
-          <h3 className="text-lg font-bold font-orbitron text-star-white mb-4">Notre vision</h3>
-          <p className="text-gray-300 font-montserrat mb-5">Commencer par la restauration. Puis :</p>
-          <div className="flex flex-wrap gap-3">
-            {['Hôtels', 'Retail', 'Santé', 'Aéroports', 'Centres commerciaux'].map((c) => (
-              <Chip key={c}>{c}</Chip>
-            ))}
-          </div>
-        </Reveal>
-      </Page>
-
-      {/* ============ PAGE 6 — BUSINESS MODEL ============ */}
-      <Page eyebrow="PAGE 6 — BUSINESS MODEL">
-        <Reveal>
-          <h2 className="text-heading-2 font-bold font-orbitron text-star-white mb-6">
-            Robot-as-a-Service
-          </h2>
-          <div className="space-y-1 text-body-large text-gray-300 font-montserrat mb-12">
-            <p>Comme Salesforce a transformé le logiciel.</p>
-            <p>Comme Tesla a transformé l'automobile.</p>
-            <p className="text-star-white font-semibold">Nous transformons la main-d'œuvre.</p>
-          </div>
-        </Reveal>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-14">
-          <Reveal>
-            <div className="card card-hover h-full">
-              <div className="flex items-center gap-2 mb-3">
-                <Wallet className="w-5 h-5 text-neon-blue" />
-                <h3 className="text-lg font-bold font-orbitron text-star-white">Leasing</h3>
-              </div>
-              <div className="text-2xl font-bold font-orbitron gradient-text mb-4">500 à 1 500 €/mois</div>
-              <p className="text-gray-400 font-montserrat mb-3">Incluant :</p>
-              <div className="flex flex-wrap gap-2">
-                {['Robot', 'Maintenance', 'IA', 'Hébergement', 'Mises à jour'].map((c) => (
-                  <Chip key={c}>{c}</Chip>
-                ))}
-              </div>
-            </div>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <div className="card card-hover h-full">
-              <div className="flex items-center gap-2 mb-3">
-                <Repeat className="w-5 h-5 text-neon-blue" />
-                <h3 className="text-lg font-bold font-orbitron text-star-white">Revenus SaaS</h3>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {['IA avancée', 'CRM', 'Analytics', 'Vision IA', 'Automatisation'].map((c) => (
-                  <Chip key={c}>{c}</Chip>
-                ))}
-              </div>
-            </div>
-          </Reveal>
-        </div>
-
-        <Reveal>
-          <div className="neon-border rounded-xl p-8 bg-white/5">
-            <p className="text-caption font-orbitron text-neon-blue mb-2">Vision long terme</p>
-            <p className="text-heading-3 font-bold font-orbitron text-star-white">
-              Créer le plus grand réseau mondial d'employés autonomes.
-            </p>
-          </div>
-        </Reveal>
-      </Page>
-
-      {/* ============ PAGE 7 — TRACTION & MOAT ============ */}
-      <Page eyebrow="PAGE 7 — TRACTION & MOAT">
-        <Reveal>
-          <h2 className="text-heading-2 font-bold font-orbitron text-star-white mb-12">
-            Pourquoi nous allons gagner
-          </h2>
-        </Reveal>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-14">
-          {[
-            { icon: Target, title: 'Accès marché', items: ['Réseau existant de restaurateurs', 'Clients déjà présents dans l\'écosystème ODY'] },
-            { icon: Cpu, title: 'Technologie', items: ['IA', 'Logiciel', 'Data', 'Intégrations'] },
-            { icon: Network, title: 'Distribution', items: ['Partenaires', 'Franchises', 'Groupes de restauration'] },
-          ].map((col, i) => (
-            <Reveal key={col.title} delay={i * 0.1}>
-              <div className="card card-hover h-full">
-                <div className="w-11 h-11 rounded-xl bg-neon-blue/10 border border-neon-blue/20 flex items-center justify-center mb-4">
-                  <col.icon className="w-5 h-5 text-neon-blue" />
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-11 h-11 rounded-xl bg-neon-blue/10 border border-neon-blue/20 flex items-center justify-center">
+                    <Globe2 className="w-5 h-5 text-neon-blue" />
+                  </div>
+                  <h3 className="text-2xl font-bold font-orbitron gradient-text">{r.name}</h3>
                 </div>
-                <h3 className="text-lg font-bold font-orbitron text-star-white mb-3">{col.title}</h3>
-                <ul className="space-y-2 text-gray-400 font-montserrat text-body">
-                  {col.items.map((it) => (
-                    <li key={it}>• {it}</li>
+
+                <div className="text-3xl font-bold font-orbitron text-star-white mb-4">{r.restaurants}</div>
+
+                <div className="space-y-1 mb-6">
+                  <p className="text-body text-gray-400 font-montserrat">{r.hypothesis}</p>
+                  <p className="text-body-large text-star-white font-montserrat font-semibold">{r.potential}</p>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {[r.hardware, r.leasing].map((blk, j) => (
+                    <div key={j} className="rounded-lg border border-white/10 bg-space-dark/80 p-4">
+                      <div className="flex items-center gap-2 mb-3">
+                        {j === 0 ? (
+                          <Wrench className="w-4 h-4 text-neon-blue" />
+                        ) : (
+                          <Repeat className="w-4 h-4 text-neon-blue" />
+                        )}
+                        <p className="text-caption font-orbitron text-neon-blue tracking-[0.15em]">{blk.title}</p>
+                      </div>
+                      <div className="space-y-1.5">
+                        {blk.lines.map((line, k) => (
+                          <p
+                            key={k}
+                            className={
+                              k === blk.lines.length - 1
+                                ? 'text-lg font-bold font-orbitron gradient-text'
+                                : 'text-body-small text-gray-400 font-montserrat'
+                            }
+                          >
+                            {line}
+                          </p>
+                        ))}
+                      </div>
+                    </div>
                   ))}
-                </ul>
+                </div>
               </div>
             </Reveal>
           ))}
         </div>
 
         <Reveal>
-          <div className="neon-border rounded-xl p-8 bg-white/5">
+          <div className="neon-border rounded-xl p-8 bg-space-dark/80 mt-6">
             <div className="flex items-center gap-2 mb-2">
-              <Database className="w-5 h-5 text-neon-blue" />
-              <p className="text-caption font-orbitron text-neon-blue">Data Network Effect</p>
+              <Globe2 className="w-5 h-5 text-neon-blue" />
+              <p className="text-caption font-orbitron text-neon-blue">
+                {t('robotic.market.vision.eyebrow')}
+              </p>
             </div>
             <p className="text-heading-3 font-bold font-orbitron text-star-white">
-              Plus il y a de robots, plus l'IA devient performante.
+              {t('robotic.market.vision.text')}
             </p>
-          </div>
-        </Reveal>
-      </Page>
-
-      {/* ============ PAGE 8 — GO TO MARKET ============ */}
-      <Page eyebrow="PAGE 8 — GO TO MARKET">
-        <Reveal>
-          <h2 className="text-heading-2 font-bold font-orbitron text-star-white mb-12">
-            Start With Restaurants
-          </h2>
-        </Reveal>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
-          {[
-            { phase: 'Phase 1', label: 'Restaurants indépendants' },
-            { phase: 'Phase 2', label: 'Chaînes de restauration' },
-            { phase: 'Phase 3', label: 'Groupes internationaux' },
-            { phase: 'Phase 4', label: 'Autres secteurs' },
-          ].map((p, i) => (
-            <Reveal key={p.phase} delay={i * 0.08}>
-              <div className="card card-hover h-full">
-                <div className="text-caption font-orbitron text-neon-blue tracking-[0.3em] mb-3">{p.phase}</div>
-                <p className="text-star-white font-montserrat font-semibold">{p.label}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-
-        <Reveal>
-          <div className="flex flex-wrap gap-3">
-            {['Retail', 'Hôtellerie', 'Santé', 'Logistique'].map((c) => (
-              <Chip key={c}>{c}</Chip>
-            ))}
           </div>
         </Reveal>
       </Page>
 
       {/* ============ PAGE 9 — FUNDRAISING ============ */}
-      <Page eyebrow="PAGE 9 — FUNDRAISING">
+      <Page eyebrow={t('robotic.fundraising.eyebrow')}>
         <Reveal>
           <h2 className="text-heading-2 font-bold font-orbitron mb-4">
-            <span className="gradient-text">Raising €3M</span>
+            <span className="gradient-text">{t('robotic.fundraising.title')}</span>
           </h2>
-          <h3 className="text-lg font-bold font-orbitron text-star-white mb-10">Utilisation des fonds</h3>
+          <h3 className="text-lg font-bold font-orbitron text-star-white mb-10">
+            {t('robotic.fundraising.useTitle')}
+          </h3>
         </Reveal>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-14">
-          {[
-            { icon: Wrench, pct: '40%', title: 'Hardware & Production', items: ['Achat robots', 'Achat composants', 'Industrialisation', 'Certifications', 'Production'] },
-            { icon: Cpu, pct: '30%', title: 'Software & AI', items: ['IA conversationnelle', 'Vision IA', 'Navigation', 'Dashboard'] },
-            { icon: Megaphone, pct: '20%', title: 'Go To Market', items: ['Déploiement commercial', 'Acquisition clients', 'Démonstrateurs'] },
-            { icon: Users, pct: '10%', title: 'Team', items: ['Recrutements clés', 'Opérations'] },
-          ].map((b, i) => (
-            <Reveal key={b.title} delay={i * 0.08}>
-              <div className="card card-hover h-full">
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center gap-3">
-                    <div className="w-11 h-11 rounded-xl bg-neon-blue/10 border border-neon-blue/20 flex items-center justify-center">
-                      <b.icon className="w-5 h-5 text-neon-blue" />
+          {tt('robotic.fundraising.buckets').map((b, i) => {
+            const Icon = fundraisingIcons[i];
+            return (
+              <Reveal key={b.title} delay={i * 0.08}>
+                <div className="card card-hover h-full">
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center gap-3">
+                      <div className="w-11 h-11 rounded-xl bg-neon-blue/10 border border-neon-blue/20 flex items-center justify-center">
+                        <Icon className="w-5 h-5 text-neon-blue" />
+                      </div>
+                      <h4 className="text-lg font-bold font-orbitron text-star-white">{b.title}</h4>
                     </div>
-                    <h4 className="text-lg font-bold font-orbitron text-star-white">{b.title}</h4>
+                    <span className="text-2xl font-bold font-orbitron gradient-text">{b.pct}</span>
                   </div>
-                  <span className="text-2xl font-bold font-orbitron gradient-text">{b.pct}</span>
+                  <BulletList items={b.items} />
                 </div>
-                <ul className="space-y-1 text-gray-400 font-montserrat text-body">
-                  {b.items.map((it) => (
-                    <li key={it}>• {it}</li>
-                  ))}
-                </ul>
-              </div>
-            </Reveal>
-          ))}
+              </Reveal>
+            );
+          })}
         </div>
 
         <Reveal>
-          <div className="neon-border rounded-xl p-8 bg-white/5">
-            <p className="text-caption font-orbitron text-neon-blue mb-2">Objectif</p>
+          <div className="neon-border rounded-xl p-8 bg-space-dark/80">
+            <p className="text-caption font-orbitron text-neon-blue mb-2">
+              {t('robotic.fundraising.objective.eyebrow')}
+            </p>
             <p className="text-heading-3 font-bold font-orbitron text-star-white">
-              Premiers robots commercialisés sous 6 à 8 mois.
-            </p>
-          </div>
-        </Reveal>
-      </Page>
-
-      {/* ============ PAGE 10 — TEAM ============ */}
-      <Page eyebrow="PAGE 10 — TEAM">
-        <Reveal>
-          <h2 className="text-heading-2 font-bold font-orbitron text-star-white mb-6">
-            Built By Operators
-          </h2>
-          <p className="text-body-large text-gray-300 font-montserrat mb-6">Équipe combinant :</p>
-          <div className="flex flex-wrap gap-3 mb-14">
-            {['SaaS', 'IA', 'Hospitality', 'Product', 'Growth'].map((c) => (
-              <Chip key={c}>{c}</Chip>
-            ))}
-          </div>
-        </Reveal>
-
-        <Reveal>
-          <div className="neon-border rounded-xl p-8 bg-white/5">
-            <p className="text-caption font-orbitron text-neon-blue mb-3">Ce qui nous différencie</p>
-            <p className="text-heading-3 font-bold font-orbitron text-star-white mb-2">
-              Nous ne construisons pas un robot.
-            </p>
-            <p className="text-heading-3 font-bold font-orbitron">
-              <span className="gradient-text">
-                Nous construisons l'Operating System de la main-d'œuvre autonome.
-              </span>
+              {t('robotic.fundraising.objective.text')}
             </p>
           </div>
         </Reveal>
       </Page>
 
       {/* ============ PAGE 11 — ROADMAP ============ */}
-      <Page eyebrow="PAGE 11 — ROADMAP">
+      <Page eyebrow={t('robotic.roadmap.eyebrow')}>
         <Reveal>
           <h2 className="text-heading-2 font-bold font-orbitron text-star-white mb-12">
-            Building The Future Workforce
+            {t('robotic.roadmap.title')}
           </h2>
         </Reveal>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-14">
-          {[
-            { year: '2026', label: 'Prototype V1' },
-            { year: '2027', label: 'Commercialisation France' },
-            { year: '2028', label: 'Expansion Europe' },
-            { year: '2030', label: '10 000+ robots déployés' },
-          ].map((r, i) => (
-            <Reveal key={r.year} delay={i * 0.08}>
-              <div className="card card-hover h-full">
-                <div className="text-2xl font-bold font-orbitron gradient-text mb-3">{r.year}</div>
-                <p className="text-star-white font-montserrat font-semibold">{r.label}</p>
-              </div>
-            </Reveal>
-          ))}
+        <div className="relative mb-14">
+          {/* Timeline connecting line (desktop) */}
+          <div className="hidden lg:block absolute top-5 left-[12.5%] right-[12.5%] h-px bg-gradient-to-r from-neon-blue/0 via-neon-blue/50 to-neon-blue/0" />
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-10">
+            {tt('robotic.roadmap.milestones').map((r, i) => (
+              <Reveal key={r.year} delay={i * 0.1}>
+                <div className="relative flex flex-col items-center text-center">
+                  {/* Numbered node */}
+                  <div className="hidden lg:flex w-10 h-10 mb-6 rounded-full bg-space-dark border-2 border-neon-blue items-center justify-center relative z-10 shadow-[0_0_14px_rgba(0,217,255,0.6)]">
+                    <span className="text-neon-blue font-orbitron font-bold text-sm">{i + 1}</span>
+                  </div>
+                  <div className="card card-hover h-full w-full">
+                    <div className="text-2xl font-bold font-orbitron gradient-text mb-3">{r.year}</div>
+                    <p className="text-star-white font-montserrat font-semibold">{r.label}</p>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
         </div>
 
         <Reveal>
-          <div className="neon-border rounded-xl p-8 bg-white/5">
+          <div className="neon-border rounded-xl p-8 bg-space-dark/80">
             <div className="flex items-center gap-2 mb-2">
               <Globe2 className="w-5 h-5 text-neon-blue" />
-              <p className="text-caption font-orbitron text-neon-blue">Vision</p>
+              <p className="text-caption font-orbitron text-neon-blue">
+                {t('robotic.roadmap.vision.eyebrow')}
+              </p>
             </div>
             <p className="text-heading-3 font-bold font-orbitron text-star-white">
-              1 million d'employés autonomes dans le monde.
+              {t('robotic.roadmap.vision.text')}
             </p>
           </div>
         </Reveal>
@@ -540,19 +395,19 @@ const Home = () => {
               <div className="w-12 h-12 rounded-2xl bg-neon-blue/10 border border-neon-blue/30 flex items-center justify-center">
                 <Bot className="w-6 h-6 text-neon-blue" />
               </div>
-              <span className="text-caption font-orbitron text-neon-blue tracking-[0.4em]">ROBOTIC</span>
+              <span className="text-caption font-orbitron text-neon-blue tracking-[0.4em]">
+                {t('robotic.closing.brand')}
+              </span>
             </div>
             <h2 className="text-heading-2 font-bold font-orbitron mb-8">
-              <span className="gradient-text">The Operating System For Autonomous Work</span>
+              <span className="gradient-text">{t('robotic.closing.title')}</span>
             </h2>
             <div className="space-y-2 text-body-large text-gray-300 font-montserrat mb-10">
-              <p>L'intelligence artificielle a révolutionné le travail numérique.</p>
-              <p className="text-star-white font-semibold">
-                ROBOTIC révolutionnera le travail physique.
-              </p>
+              <p>{t('robotic.closing.line1')}</p>
+              <p className="text-star-white font-semibold">{t('robotic.closing.line2')}</p>
             </div>
             <div className="inline-flex items-center gap-2 text-heading-3 font-bold font-orbitron text-star-white">
-              Join us in building the future workforce
+              {t('robotic.closing.cta')}
               <ArrowRight className="w-6 h-6 text-neon-blue" />
             </div>
           </Reveal>

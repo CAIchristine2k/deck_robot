@@ -34,9 +34,10 @@ module.exports = {
         'gray-900': '#111827',
       },
       fontFamily: {
-        'orbitron': ['Orbitron', 'monospace'],
-        'montserrat': ['Montserrat', 'sans-serif'],
-        'exo': ['Exo 2', 'sans-serif'],
+        'inter': ['Inter', 'sans-serif'],
+        'orbitron': ['Inter', 'sans-serif'],
+        'montserrat': ['Inter', 'sans-serif'],
+        'exo': ['Inter', 'sans-serif'],
       },
       animation: {
         'float': 'float 6s ease-in-out infinite',
