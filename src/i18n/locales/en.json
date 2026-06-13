@@ -1,0 +1,693 @@
+{
+  "header": {
+    "home": "Home",
+    "services": "Services",
+    "digitalMarketing": "Digital Marketing",
+    "adCampaigns": "Ad Campaigns",
+    "productSourcing": "Product Sourcing",
+    "logistics": "Logistics",
+    "websiteDevelopment": "Website & App Development",
+    "contact": "Contact",
+    "getStarted": "Get Started"
+  },
+  "hero": {
+    "title": "Your Digital Partner for Growth, Beauty, and Boundless Potential",
+    "subtitle": "Empowering ideas with beautiful code, smart strategy, and campaigns that turn clicks into clients.",
+    "exploreButton": "Explore Our Universe",
+    "startButton": "Start Your Journey",
+    "aiDriven": "AI-Driven Strategy",
+    "aiDrivenDesc": "Advanced algorithms power our marketing decisions",
+    "globalReach": "Global Reach",
+    "globalReachDesc": "Connect with audiences across the digital cosmos",
+    "futureReady": "Future-Ready",
+    "futureReadyDesc": "Stay ahead with cutting-edge technology",
+    "discoverMore": "Discover More"
+  },
+  "whyUs": {
+    "title": "Why Choose Artemis?",
+    "content": "At Artemis, we blend cutting-edge technology with bold creativity to deliver digital solutions that don't just look good—they perform. Whether it's a sleek web platform, a dynamic mobile app, or an immersive 3D experience, our work is engineered for real-world impact. We don't do cookie-cutter. Every project is tailored, scalable, and infused with the latest in AI, automation, and design. Backed by proven results and trusted by major brands, Artemis is where high-performance tech meets visionary execution. When you choose us, you're not hiring an agency—you're partnering with a digital powerhouse committed to making your ideas unforgettable."
+  },
+  "servicesGrid": {
+    "title": "Our Expertise & Services",
+    "subtitle": "Complete solutions to grow your brand, from tech to marketing.",
+    "services": [
+      {
+        "title": "Mobile Application",
+        "items": [
+          "Android, iOS and Web (PWA) Development",
+          "Cross-platform UI/UX Design",
+          "API & Database Integration",
+          "App Store & Play Store Deployment",
+          "Maintenance & Updates"
+        ]
+      },
+      {
+        "title": "Web Application & Software",
+        "items": [
+          "Front-end & Back-end Development",
+          "Responsive Design & Accessibility",
+          "Scalable SaaS Architecture",
+          "Security & Performance",
+          "Custom Integrations"
+        ]
+      },
+      {
+        "title": "Workflow Automation & Optimization",
+        "items": [
+          "Business Process Automation",
+          "Integration with frontline tools or custom coded workflow",
+          "Custom Workflow Solutions",
+          "Performance Monitoring",
+          "Efficiency Analytics"
+        ]
+      },
+      {
+        "title": "Frontline AI Integration",
+        "items": [
+          "Intelligent Chatbots & Assistants",
+          "Custom AI Automations",
+          "Predictive Analytics",
+          "Generative AI (text, image, video)",
+          "Integration with Existing Systems"
+        ]
+      },
+      {
+        "title": "Advertising Campaigns & SEO",
+        "items": [
+          "Meta, TikTok, Google Ads",
+          "Technical & Content SEO",
+          "Conversion Tracking & Analytics",
+          "A/B Testing & Optimizations",
+          "Growth Strategy & Audit"
+        ]
+      },
+      {
+        "title": "Digital Marketing Strategies",
+        "items": [
+          "Conversion Funnel Creation",
+          "Newsletters & Email Marketing",
+          "CRM Automation",
+          "Brand Positioning",
+          "Landing Page Optimization"
+        ]
+      },
+      {
+        "title": "Influencer Partnerships",
+        "items": [
+          "Influencer Sourcing & Management",
+          "UGC Content Creation",
+          "Sponsored Campaign Management",
+          "KPIs & ROI Tracking",
+          "Social Media Activation"
+        ]
+      },
+      {
+        "title": "Brand Scale & Expansion",
+        "items": [
+          "Multi-channel Scaling Plan",
+          "Team & Process Structuring",
+          "Monetization & D2C Strategy",
+          "USA / International Expansion",
+          "Operations Automation"
+        ]
+      }
+    ]
+  },
+  "techStack": {
+    "title": "Technologies and Tools We Master",
+    "subtitle": "From development to AI automation, here's our technical stack.",
+    "technologies": {
+      "react": { "tooltip": "React – UI Development" },
+      "vuejs": { "tooltip": "Vue.js – Progressive Framework" },
+      "flutter": { "tooltip": "Flutter – Mobile Development" },
+      "reactnative": { "tooltip": "React Native – Mobile Apps" },
+      "nodejs": { "tooltip": "Node.js – Backend Runtime" },
+      "django": { "tooltip": "Django – Python Framework" },
+      "firebase": { "tooltip": "Firebase – Backend Services" },
+      "supabase": { "tooltip": "Supabase – Open Source Backend" },
+      "graphql": { "tooltip": "GraphQL – API Query Language" },
+      "googlecloud": { "tooltip": "Google Cloud – Cloud Platform" },
+      "aws": { "tooltip": "AWS – Cloud Infrastructure" },
+      "stripe": { "tooltip": "Stripe – Payment Integration" },
+      "twilio": { "tooltip": "Twilio – Communication APIs" },
+      "sendgrid": { "tooltip": "SendGrid – Email Delivery" },
+      "claude": { "tooltip": "Claude – AI Assistant" },
+      "openai": { "tooltip": "OpenAI – ChatGPT & APIs" },
+      "deepseek": { "tooltip": "DeepSeek – AI Research" },
+      "github": { "tooltip": "GitHub – Version Control" },
+      "zapier": { "tooltip": "Zapier – Automation Platform" },
+      "n8n": { "tooltip": "n8n – Workflow Automation" },
+      "make": { "tooltip": "Make.com – Visual Automation" }
+    }
+  },
+  "digitalMarketing": {
+    "title": "Digital Marketing",
+    "subtitle": "Harness the power of cutting-edge digital marketing strategies to amplify your brand's reach and accelerate growth in the digital universe.",
+    "seo": {
+      "title": "SEO Optimization",
+      "description": "Dominate search rankings with AI-powered SEO strategies that propel your brand to the top of search results.",
+      "features": {
+        "keyword": "Keyword Research",
+        "technical": "Technical SEO",
+        "content": "Content Optimization",
+        "link": "Link Building"
+      }
+    },
+    "content": {
+      "title": "Content Marketing",
+      "description": "Engage audiences with compelling content that tells your brand story across all digital platforms.",
+      "features": {
+        "blog": "Blog Writing",
+        "video": "Video Content",
+        "infographics": "Infographics",
+        "social": "Social Copy"
+      }
+    },
+    "social": {
+      "title": "Social Media Strategy",
+      "description": "Build communities and drive engagement through strategic social media campaigns and management.",
+      "features": {
+        "platform": "Platform Strategy",
+        "community": "Community Building",
+        "influencer": "Influencer Outreach",
+        "analytics": "Social Analytics"
+      }
+    },
+    "analytics": {
+      "title": "Analytics & Insights",
+      "description": "Make data-driven decisions with comprehensive analytics and performance tracking systems.",
+      "features": {
+        "performance": "Performance Tracking",
+        "conversion": "Conversion Analytics",
+        "behavior": "User Behavior",
+        "roi": "ROI Analysis"
+      }
+    },
+    "paid": {
+      "title": "Paid Advertising",
+      "description": "Maximize ROI with precision-targeted advertising campaigns across Google, Facebook, and beyond.",
+      "features": {
+        "google": "Google Ads",
+        "facebook": "Facebook Ads",
+        "display": "Display Advertising",
+        "retargeting": "Retargeting"
+      }
+    },
+    "conversion": {
+      "title": "Conversion Optimization",
+      "description": "Transform visitors into customers with optimized landing pages and conversion funnels.",
+      "features": {
+        "testing": "A/B Testing",
+        "landing": "Landing Pages",
+        "ux": "UX Optimization",
+        "cro": "CRO Strategy"
+      }
+    },
+    "cta": {
+      "title": "Ready to Launch Your Digital Strategy?",
+      "description": "Let's collaborate to create a comprehensive digital marketing strategy that drives real results and accelerates your business growth.",
+      "button": "Start Your Digital Journey"
+    }
+  },
+  "adCampaigns": {
+    "title": "Advertisement Campaigns",
+    "subtitle": "Launch high-impact advertising campaigns that cut through the noise and deliver exceptional results across all major digital platforms.",
+    "stats": {
+      "sales": "Sales Generated",
+      "roi": "Average ROI Increase",
+      "campaigns": "Successful Campaigns",
+      "monitoring": "Campaign Monitoring"
+    },
+    "mediaBuying": {
+      "title": "Media Buying",
+      "description": "Strategic media purchasing across premium digital platforms to maximize reach and minimize costs.",
+      "features": {
+        "programmatic": "Programmatic Advertising",
+        "premium": "Premium Placements",
+        "realtime": "Real-time Bidding",
+        "budget": "Budget Optimization"
+      },
+      "highlight": "Up to 40% cost reduction"
+    },
+    "influencer": {
+      "title": "Influencer Partnerships",
+      "description": "Connect with authentic voices that resonate with your audience and amplify your brand message.",
+      "features": {
+        "micro": "Micro & Macro Influencers",
+        "content": "Content Collaboration",
+        "performance": "Performance Tracking",
+        "longterm": "Long-term Partnerships"
+      },
+      "highlight": "500+ Creator Network"
+    },
+    "tiktok": {
+      "title": "TikTok Ad Mastery",
+      "description": "Dominate the fastest-growing platform with viral content and precision-targeted advertising campaigns.",
+      "features": {
+        "viral": "Viral Content Strategy",
+        "adsManager": "TikTok Ads Manager",
+        "hashtag": "Hashtag Challenges",
+        "creator": "Creator Partnerships"
+      },
+      "highlight": "2 Billion+ Views Generated"
+    },
+    "creative": {
+      "title": "Creative Development",
+      "description": "Design compelling ad creatives that capture attention and drive action across all platforms.",
+      "features": {
+        "video": "Video Production",
+        "graphic": "Graphic Design",
+        "copy": "Copy Writing",
+        "testing": "A/B Testing"
+      },
+      "highlight": "300% CTR Improvement"
+    },
+    "performance": {
+      "title": "Performance Analytics",
+      "description": "Advanced tracking and optimization to ensure every dollar spent delivers maximum ROI.",
+      "features": {
+        "attribution": "Attribution Modeling",
+        "conversion": "Conversion Tracking",
+        "audience": "Audience Insights",
+        "optimization": "Campaign Optimization"
+      },
+      "highlight": "Real-time Reporting"
+    },
+    "brand": {
+      "title": "Brand Amplification",
+      "description": "Scale your brand presence across multiple channels with integrated campaign strategies.",
+      "features": {
+        "multiplatform": "Multi-platform Campaigns",
+        "crosschannel": "Cross-channel Optimization",
+        "consistency": "Brand Consistency",
+        "expansion": "Audience Expansion"
+      },
+      "highlight": "5x Reach Multiplier"
+    },
+    "cta": {
+      "title": "Ready to Launch Your Next Campaign?",
+      "description": "Partner with us to create advertising campaigns that not only capture attention but drive measurable results and sustainable growth.",
+      "launchButton": "Launch Campaign",
+      "caseStudiesButton": "View Case Studies"
+    }
+  },
+  "productSourcing": {
+    "title": "Product Sourcing",
+    "subtitle": "Navigate the global marketplace with confidence. Our sourcing expertise connects you with premium suppliers and ensures quality products at competitive prices.",
+    "global": {
+      "title": "Global Sourcing Network",
+      "description": "Access our extensive network of verified suppliers across 50+ countries for competitive pricing and quality products.",
+      "features": {
+        "verified": "Verified Suppliers",
+        "quality": "Quality Assurance",
+        "pricing": "Competitive Pricing",
+        "reach": "Global Reach"
+      },
+      "stat": "50+ Countries"
+    },
+    "privateLabel": {
+      "title": "Private Label Solutions",
+      "description": "Transform your brand vision into reality with custom product development and private labeling services.",
+      "features": {
+        "packaging": "Custom Packaging",
+        "brand": "Brand Development",
+        "customization": "Product Customization",
+        "moq": "MOQ Optimization"
+      },
+      "stat": "1000+ Products"
+    },
+    "negotiation": {
+      "title": "Negotiation Excellence",
+      "description": "Our expert negotiators secure the best deals, terms, and conditions for your sourcing needs.",
+      "features": {
+        "price": "Price Negotiation",
+        "terms": "Terms Optimization",
+        "contract": "Contract Management",
+        "risk": "Risk Mitigation"
+      },
+      "stat": "30% Savings"
+    },
+    "qualityAssurance": {
+      "title": "Quality Assurance",
+      "description": "Comprehensive quality control processes ensure every product meets your specifications and standards.",
+      "features": {
+        "audits": "Factory Audits",
+        "testing": "Product Testing",
+        "standards": "Quality Standards",
+        "compliance": "Compliance Checks"
+      },
+      "stat": "99.5% Quality Rate"
+    },
+    "prototyping": {
+      "title": "Rapid Prototyping",
+      "description": "Fast-track your product development with our rapid prototyping and sample services.",
+      "features": {
+        "samples": "Quick Samples",
+        "3d": "3D Prototyping",
+        "validation": "Design Validation",
+        "iteration": "Iteration Support"
+      },
+      "stat": "7-Day Turnaround"
+    },
+    "compliance": {
+      "title": "Compliance Management",
+      "description": "Navigate complex international regulations with our compliance and certification expertise.",
+      "features": {
+        "regulatory": "Regulatory Compliance",
+        "certifications": "Certifications",
+        "documentation": "Documentation",
+        "importExport": "Import/Export"
+      },
+      "stat": "100% Compliant"
+    },
+    "process": {
+      "title": "Our Sourcing Process",
+      "steps": {
+        "discovery": {
+          "title": "Discovery",
+          "description": "Understand your product requirements and business objectives"
+        },
+        "sourcing": {
+          "title": "Sourcing",
+          "description": "Identify and evaluate potential suppliers worldwide"
+        },
+        "negotiation": {
+          "title": "Negotiation",
+          "description": "Secure optimal pricing and terms for your products"
+        },
+        "qualityControl": {
+          "title": "Quality Control",
+          "description": "Implement rigorous quality assurance processes"
+        },
+        "delivery": {
+          "title": "Delivery",
+          "description": "Coordinate seamless logistics and timely delivery"
+        }
+      }
+    },
+    "cta": {
+      "title": "Ready to Source Your Next Product?",
+      "description": "Connect with our sourcing experts to discover how we can help you find the perfect products at competitive prices with guaranteed quality.",
+      "startButton": "Contact Us",
+      "quoteButton": "Contact Us"
+    }
+  },
+  "logistics": {
+    "title": "Ecommerce Logistics",
+    "subtitle": "Revolutionize your supply chain with our advanced logistics solutions. From warehouse to doorstep, we ensure seamless operations and exceptional customer experiences.",
+    "benefits": {
+      "costs": {
+        "title": "Reduced Costs",
+        "description": "Average shipping cost reduction"
+      },
+      "delivery": {
+        "title": "Faster Delivery",
+        "description": "Improvement in delivery speed"
+      },
+      "accuracy": {
+        "title": "Accuracy Rate",
+        "description": "Order fulfillment accuracy"
+      },
+      "satisfaction": {
+        "title": "Customer Satisfaction",
+        "description": "Customer satisfaction score"
+      }
+    },
+    "warehousing": {
+      "title": "Smart Warehousing",
+      "description": "State-of-the-art facilities with AI-powered inventory management and real-time tracking systems.",
+      "features": {
+        "multiLocation": "Multi-location Storage",
+        "climate": "Climate Control",
+        "security": "Security Systems",
+        "inventory": "Inventory Optimization"
+      },
+      "metric": "99.8% Accuracy"
+    },
+    "shipping": {
+      "title": "Global Shipping",
+      "description": "Worldwide shipping solutions with multiple carrier options and expedited delivery services.",
+      "features": {
+        "express": "Express Delivery",
+        "international": "International Shipping",
+        "carrier": "Carrier Selection",
+        "route": "Route Optimization"
+      },
+      "metric": "2-Day Delivery"
+    },
+    "fulfillment": {
+      "title": "Fulfillment Automation",
+      "description": "Automated order processing and fulfillment with lightning-fast picking, packing, and shipping.",
+      "features": {
+        "automation": "Order Automation",
+        "pickPack": "Pick & Pack",
+        "updates": "Real-time Updates",
+        "quality": "Quality Control"
+      },
+      "metric": "2-Hour Processing"
+    },
+    "returns": {
+      "title": "Returns Management",
+      "description": "Streamlined returns process with automated workflows and customer-friendly policies.",
+      "features": {
+        "easy": "Easy Returns",
+        "automated": "Automated Processing",
+        "refund": "Refund Management",
+        "restocking": "Restocking"
+      },
+      "metric": "24-Hour Returns"
+    },
+    "distribution": {
+      "title": "Global Distribution",
+      "description": "Strategic distribution centers positioned worldwide for optimal delivery speed and cost efficiency.",
+      "features": {
+        "strategic": "Strategic Locations",
+        "lastMile": "Last-mile Delivery",
+        "cost": "Cost Optimization",
+        "hubs": "Regional Hubs"
+      },
+      "metric": "15+ Countries"
+    },
+    "analytics": {
+      "title": "Analytics & Insights",
+      "description": "Comprehensive logistics analytics providing actionable insights for operational optimization.",
+      "features": {
+        "metrics": "Performance Metrics",
+        "costAnalysis": "Cost Analysis",
+        "tracking": "Delivery Tracking",
+        "predictive": "Predictive Analytics"
+      },
+      "metric": "Real-time Data"
+    },
+    "flow": {
+      "title": "Our Logistics Flow",
+      "steps": {
+        "receive": {
+          "title": "Receive",
+          "description": "Orders automatically imported and processed"
+        },
+        "pickPack": {
+          "title": "Pick & Pack",
+          "description": "AI-powered picking and packaging systems"
+        },
+        "ship": {
+          "title": "Ship",
+          "description": "Multi-carrier shipping with tracking"
+        },
+        "deliver": {
+          "title": "Deliver",
+          "description": "Last-mile delivery and confirmation"
+        }
+      }
+    },
+    "cta": {
+      "title": "Optimize Your Logistics Today",
+      "description": "Experience the future of ecommerce logistics. Let us handle your supply chain while you focus on growing your business.",
+      "button": "Get Started"
+    }
+  },
+  "websiteDevelopment": {
+    "title": "Enhance Your Business Visibility with a High-Performance Website",
+    "why": "Why Have a Website?",
+    "servicesTitle": "Website Services",
+    "stats": {
+      "online": "of customers check information online before visiting a business",
+      "credibility": "judge a company's credibility based on its website"
+    },
+    "basic": {
+      "title": "Basic Website",
+      "price": "€580",
+      "description": "",
+      "features": ["Standard design", "Basic responsive layout"]
+    },
+    "custom": {
+      "title": "Custom Website",
+      "price": "€1280",
+      "description": "",
+      "features": ["Full website development", "Corporate site", "Responsive design", "Fully optimized for all devices", "Customized Style"]
+    },
+    "maintenance": {
+      "title": "Website Maintenance",
+      "price": "€19.90/month",
+      "description": "",
+      "features": ["Hosting", "Domain registration", "Technical support", "Minor adjustments"],
+      "referral": "Refer a friend: Both you and your friend get 6 months of free maintenance"
+    },
+    "customProject": {
+      "title": "Custom Project",
+      "price": "Invoice Based",
+      "description": "",
+      "features": ["Full website development flexibility", "Free consultation", "Bigger projects", "AI Integration"]
+    },
+    "contact": {
+      "title": "Contact Information",
+      "description": "For more information or a personalized quote, contact us now to boost your business visibility with a professional website!",
+      "website": "Official website",
+      "email": "Email"
+    },
+    "businessValue": {
+      "title": "What a Website Can Bring to a Business",
+      "benefits": [
+        {
+          "title": "Increased Exposure",
+          "description": "Through a website, businesses can showcase their brand, products, services, and contact information 24/7, providing instant information to potential customers."
+        },
+        {
+          "title": "Enhanced Credibility",
+          "description": "A professionally designed website conveys your brand's professional image and reliability, attracting more consumers' trust."
+        },
+        {
+          "title": "Precise Marketing and Private Traffic",
+          "description": "Through website data analytics to understand customer preferences, enabling more effective promotional strategies."
+        },
+        {
+          "title": "Multi-channel Traffic Support",
+          "description": "By linking with social media, maps, and review platforms, the website becomes a central information hub, improving customer conversion rates."
+        },
+        {
+          "title": "Marketing Cost Savings",
+          "description": "Compared to traditional advertising, website maintenance costs are lower while reaching a broader audience."
+        },
+        {
+          "title": "Showcase Brand Uniqueness",
+          "description": "Through carefully designed interfaces and content, reflect the business's unique style and attract specific target groups."
+        },
+        {
+          "title": "Enhanced Customer Loyalty",
+          "description": "Publishing blogs, promotional activities, or chef columns increases customer revisit intentions."
+        }
+      ]
+    },
+    "appServicesTitle": "Apps Services",
+    "appCustomProject": {
+      "title": "Custom Project",
+      "price": "Invoice Based",
+      "description": "Full app development flexibility to address your specific mobile or web application needs",
+      "features": [
+        "Complete project analysis",
+        "Custom technical solution design",
+        "Development phases with iterations",
+        "Comprehensive testing and optimization",
+        "Deployment to app stores and ongoing support",
+        "Scalable architecture"
+      ]
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Ready to launch your next project into the digital stratosphere? Connect with our team of experts and let's create something extraordinary together.",
+    "contactInfo": "Contact Info",
+    "inquiryText": "If you have a general inquiry, you can contact us at:",
+    "email": "Email",
+    "form": {
+      "title": "Send Us a Message",
+      "name": "Name *",
+      "email": "Email *",
+      "company": "Company",
+      "message": "Message *",
+      "placeholders": {
+        "name": "Your name",
+        "email": "your@email.com",
+        "company": "Your company",
+        "message": "Tell us about your project..."
+      },
+      "button": "Send Message",
+      "success": "Message sent successfully! We'll get back to you soon."
+    }
+  },
+  "footer": {
+    "description": "Pioneering the future of digital marketing with innovative strategies, cutting-edge technology, and exceptional results that propel businesses into the digital stratosphere.",
+    "contact": {
+      "title": "Get In Touch",
+      "email": "contact@artemis-marketing.net"
+    },
+    "services": {
+      "title": "Services",
+      "digitalMarketing": "Digital Marketing",
+      "adCampaigns": "Advertisement Campaigns",
+      "productSourcing": "Product Sourcing",
+      "logistics": "Ecommerce Logistics",
+      "websiteDevelopment": "Website & App Development"
+    },
+    "copyright": "© 2024 Artemis. All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "cookies": "Cookie Policy",
+    "scrollTop": "Scroll to top",
+    "social": {
+      "facebook": "Facebook",
+      "twitter": "Twitter",
+      "linkedin": "LinkedIn",
+      "instagram": "Instagram"
+    }
+  },
+  "chatbot": {
+    "greeting": "Hi! I'm Orion. What can I help you with?",
+    "subtitle": "Ask me anything about Artemis Marketing Services",
+    "bubble": "My name is Orion, pleasure to meet you",
+    "sendButton": "Send",
+    "inputPlaceholder": "Type your message...",
+    "welcomeMessage": "Hello! I'm Orion, your AI assistant for Artemis Marketing Services. How can I help you today?",
+    "welcomeTitle": "Hello! I'm Orion",
+    "welcomeSubtitle": "Your AI assistant for Artemis Marketing Services. How can I help you today?",
+    "clearConversation": "Clear conversation",
+    "madeByArtemis": "Made by Artemis"
+  },
+  "appFeatures": {
+    "title": "Features We Can Integrate",
+    "subtitle": "We design feature-rich applications, tailored to your specific needs.",
+    "andMore": "and more...",
+    "features": {
+      "map": "Maps",
+      "navigation": "Navigation",
+      "videoChat": "Video Chat",
+      "audioChat": "Audio Chat",
+      "liveChat": "Live Chat",
+      "stories": "Stories",
+      "videos": "Videos",
+      "photos": "Photos",
+      "authentication": "Authentication",
+      "security": "Security",
+      "payment": "Payment",
+      "ecommerce": "E-commerce",
+      "newsFeed": "News Feed",
+      "notifications": "Notifications",
+      "smartSearch": "Smart Search",
+      "sortFilter": "Sort & Filter",
+      "comments": "Comments",
+      "ratings": "Ratings & Reviews",
+      "settings": "Settings",
+      "profiles": "Profiles",
+      "freight": "Freight",
+      "relationships": "Relationships",
+      "transport": "Transport",
+      "delivery": "Delivery",
+      "network": "Network",
+      "forms": "Forms",
+      "connections": "Connections"
+    }
+  },
+  "videoSection": {
+    "title": "Endless Possibilities, One Team"
+  }
+}

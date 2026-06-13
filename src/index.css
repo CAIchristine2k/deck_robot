@@ -1,0 +1,498 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Montserrat:wght@300;400;500;600;700&family=Exo+2:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+
+/* Mobile scrolling improvements */
+@media (max-width: 768px) {
+  html, body {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    overscroll-behavior: none;
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+  }
+  
+  /* Disable Framer Motion animations in footer on mobile for better scrolling */
+  footer [data-framer-motion] {
+    transform: none !important;
+    opacity: 1 !important;
+  }
+  
+  /* Fix touch scrolling on specific footer elements */
+  footer p,
+  footer div,
+  footer .text-gray-300,
+  footer .font-montserrat {
+    pointer-events: auto !important;
+    touch-action: auto !important;
+    -webkit-user-select: text !important;
+    user-select: text !important;
+  }
+  
+  /* Remove any background effects that might interfere with touch */
+  footer .bg-space-blue\/20,
+  footer .bg-gradient-to-br {
+    pointer-events: auto !important;
+    touch-action: auto !important;
+  }
+  
+  /* Remove glass morphism and backdrop filters in footer on mobile */
+  /* Commented out to allow glass effect on Get in Touch and Chat with Orion
+  footer .glass-morphism,
+  footer [class*="glass"] {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: transparent !important;
+  }
+  */
+  
+  /* Remove any filters applied to footer */
+  /* Commented out to allow glass effect on footer elements
+  footer {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    filter: none !important;
+  }
+  */
+  
+  
+  /* Ensure content scrolls properly - removed pointer-events override */
+  main, section, footer {
+    position: relative !important;
+    z-index: 10 !important;
+    -webkit-overflow-scrolling: touch !important;
+    touch-action: pan-y !important;
+  }
+  
+  /* Fix footer area scrolling - removed pointer-events override */
+  footer {
+    touch-action: pan-y !important;
+    -webkit-overflow-scrolling: touch !important;
+    position: relative !important;
+    z-index: 30 !important;
+    isolation: isolate !important;
+  }
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Ensure interactive elements remain clickable even within pointer-events: none containers */
+a, button, input, textarea, select, 
+[role="button"], [role="link"], 
+.pointer-events-auto {
+  pointer-events: auto !important;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #000000;
+  color: #F8FAFC;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Mobile-specific smooth scrolling */
+@media (max-width: 768px) {
+  html, body {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+  
+  /* Optimize scrolling performance */
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* High-quality Spline rendering */
+spline-viewer,
+.spline-canvas,
+canvas {
+  image-rendering: auto !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  backface-visibility: hidden;
+  /* Prevent blur from browser scaling */
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
+}
+
+/* Specific canvas optimizations */
+.spline-canvas canvas {
+  image-rendering: auto !important;
+  /* Disable any filters that might blur */
+  filter: none !important;
+  /* High quality scaling */
+  -ms-interpolation-mode: bicubic;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+/* Ensure Spline container maintains aspect ratio */
+[data-spline-scene] {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+}
+
+
+
+.glow-text {
+  /* Glow effect removed */
+}
+
+.neon-border {
+  border: 1px solid #00D9FF;
+  box-shadow: 0 0 10px #00D9FF, inset 0 0 10px rgba(0, 217, 255, 0.1);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #00D9FF, #4A90E2, #F8FAFC);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Enhanced Typography Utilities */
+.text-heading-1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.text-heading-2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.text-heading-3 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  line-height: 1.3;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+.text-body-large {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+.text-body {
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.text-body-small {
+  font-size: 0.875rem;
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+.text-caption {
+  font-size: 0.75rem;
+  line-height: 1.3;
+  font-weight: 500;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+}
+
+/* Enhanced Button Styles */
+.btn-primary {
+  @apply px-6 py-3 bg-gradient-to-r from-stellar-blue to-neon-blue text-white font-medium font-montserrat rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-neon-blue/30 focus:outline-none focus:ring-2 focus:ring-neon-blue/50;
+}
+
+.btn-secondary {
+  @apply px-6 py-3 bg-white/5 text-white font-medium font-montserrat rounded-full border border-white/20 transition-all duration-300 hover:bg-white/10 hover:border-white/30 focus:outline-none focus:ring-2 focus:ring-white/30;
+}
+
+.btn-ghost {
+  @apply px-6 py-3 text-gray-300 font-medium font-montserrat rounded-full transition-all duration-300 hover:text-white hover:bg-white/5 focus:outline-none focus:ring-2 focus:ring-white/20;
+}
+
+.btn-success {
+  @apply px-6 py-3 bg-gradient-to-r from-success to-success-light text-white font-medium font-montserrat rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-success/30 focus:outline-none focus:ring-2 focus:ring-success/50;
+}
+
+.btn-warning {
+  @apply px-6 py-3 bg-gradient-to-r from-warning to-warning-light text-white font-medium font-montserrat rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-warning/30 focus:outline-none focus:ring-2 focus:ring-warning/50;
+}
+
+.btn-error {
+  @apply px-6 py-3 bg-gradient-to-r from-error to-error-light text-white font-medium font-montserrat rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-error/30 focus:outline-none focus:ring-2 focus:ring-error/50;
+}
+
+/* Enhanced Card Styles */
+.card {
+  @apply bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 transition-all duration-300;
+}
+
+.card-hover {
+  @apply hover:bg-white/10 hover:border-white/20 hover:shadow-lg hover:shadow-neon-blue/10;
+}
+
+.card-interactive {
+  @apply cursor-pointer transform hover:scale-105 transition-transform duration-300;
+}
+
+/* Status Indicators */
+.status-success {
+  @apply text-success bg-success/10 border border-success/20;
+}
+
+.status-warning {
+  @apply text-warning bg-warning/10 border border-warning/20;
+}
+
+.status-error {
+  @apply text-error bg-error/10 border border-error/20;
+}
+
+.status-info {
+  @apply text-info bg-info/10 border border-info/20;
+}
+
+/* Apple-style glass morphism - subtle glass effect with improved visibility */
+.glass-morphism {
+  background: rgba(255, 255, 255, 0.025);
+  backdrop-filter: blur(10px) saturate(115%);
+  -webkit-backdrop-filter: blur(10px) saturate(115%);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.05);
+}
+
+/* Carousel animations for tech stack */
+@keyframes scroll-right {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.333%);
+  }
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(-33.333%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes infinite-scroll-right {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.333%);
+  }
+}
+
+@keyframes infinite-scroll-left {
+  0% {
+    transform: translateX(-33.333%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-scroll-right {
+  animation: scroll-right 20s linear infinite;
+}
+
+.animate-scroll-left {
+  animation: scroll-left 20s linear infinite;
+}
+
+.animate-infinite-scroll-right {
+  display: flex;
+  animation: infinite-scroll-right 25s linear infinite;
+}
+
+.animate-infinite-scroll-left {
+  display: flex;
+  animation: infinite-scroll-left 25s linear infinite;
+}
+
+.glass-morphism-hover:hover {
+  background: rgba(255, 255, 255, 0.035);
+  backdrop-filter: blur(12px) saturate(120%);
+  -webkit-backdrop-filter: blur(12px) saturate(120%);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.05);
+}
+
+/* Glass morphism that works on mobile footer elements */
+.glass-morphism-mobile {
+  background: rgba(255, 255, 255, 0.025) !important;
+  backdrop-filter: blur(10px) saturate(115%) !important;
+  -webkit-backdrop-filter: blur(10px) saturate(115%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  box-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Force LTR layout for main content even in RTL languages */
+[dir="rtl"] .force-ltr {
+  direction: ltr !important;
+  text-align: left !important;
+}
+
+/* Siri Circle Animation */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-3px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes glow {
+  /* Glow animation removed */
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-glow {
+  /* Animation removed */
+}
+
+/* Spin animations for loading screen */
+@keyframes spin-reverse {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+.animate-spin-reverse {
+  animation: spin-reverse 1.5s linear infinite;
+}
+
+/* Shimmer effect for loading bar */
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s linear infinite;
+}
+
+/* Micro-interactions and Enhanced Feedback */
+.hover-lift {
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 217, 255, 0.15);
+}
+
+.hover-glow {
+  transition: box-shadow 0.3s ease-out;
+}
+
+.hover-glow:hover {
+  /* Glow effect removed */
+}
+
+.focus-ring {
+  transition: all 0.2s ease-out;
+}
+
+.focus-ring:focus {
+  outline: none;
+  ring: 2px;
+  ring-color: rgba(0, 217, 255, 0.5);
+  ring-offset: 2px;
+  ring-offset-color: black;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.6s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Enhanced form styles */
+.form-input {
+  @apply w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg text-white placeholder-gray-400 font-montserrat transition-all duration-300 focus:outline-none focus:bg-white/10 focus:border-neon-blue/50 focus:ring-2 focus:ring-neon-blue/20;
+}
+
+.form-textarea {
+  @apply w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg text-white placeholder-gray-400 font-montserrat transition-all duration-300 focus:outline-none focus:bg-white/10 focus:border-neon-blue/50 focus:ring-2 focus:ring-neon-blue/20 min-h-[120px] resize-y;
+}
+
+/* Loading states */
+.loading-shimmer {
+  background: linear-gradient(90deg, rgba(255,255,255,0.1) 25%, rgba(0,217,255,0.1) 50%, rgba(255,255,255,0.1) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Interactive element styles for proper pointer events */
+.interactive {
+  pointer-events: auto !important;
+  cursor: pointer;
+}
+
+/* Ensure all interactive elements in content containers work */
+.pointer-events-none a,
+.pointer-events-none button,
+.pointer-events-none input,
+.pointer-events-none textarea,
+.pointer-events-none select,
+.pointer-events-none [role="button"],
+.pointer-events-none [onclick],
+.pointer-events-none .interactive {
+  pointer-events: auto !important;
+}
