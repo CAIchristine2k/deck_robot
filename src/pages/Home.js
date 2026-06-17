@@ -8,14 +8,14 @@ import {
   RefreshCw,
   ShieldAlert,
   Activity,
-  Cpu,
+  CircleAlert,
   Network,
   Globe2,
   Utensils,
   Repeat,
   Wrench,
-  Megaphone,
-  ArrowRight,
+  Palette,
+  SlidersHorizontal,
 } from 'lucide-react';
 import { useLoading } from '../contexts/LoadingContext';
 
@@ -98,8 +98,8 @@ const Home = () => {
   // Helper to fetch arrays/objects from translations
   const tt = (key) => t(key, { returnObjects: true });
 
-  const problemIcons = [TrendingDown, Users, RefreshCw, ShieldAlert, Activity];
-  const fundraisingIcons = [Wrench, Cpu, Megaphone, Users];
+  const problemIcons = [TrendingDown, Users, RefreshCw, ShieldAlert, Activity, CircleAlert];
+  const customizationIcons = [Utensils, Palette, Network, SlidersHorizontal];
 
   return (
     <div
@@ -232,8 +232,14 @@ const Home = () => {
         </Reveal>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {tt('robotic.market.regions').map((r, i) => (
-            <Reveal key={r.name} delay={i * 0.1}>
+          {tt('robotic.market.regions').map((r, i, arr) => {
+            const isLastOdd = i === arr.length - 1 && arr.length % 2 === 1;
+            return (
+            <Reveal
+              key={r.name}
+              delay={i * 0.1}
+              className={isLastOdd ? 'lg:col-span-2 lg:max-w-[calc(50%-12px)] lg:mx-auto lg:w-full' : ''}
+            >
               <div className="card card-hover h-full">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-11 h-11 rounded-xl bg-neon-blue/10 border border-neon-blue/20 flex items-center justify-center">
@@ -279,7 +285,8 @@ const Home = () => {
                 </div>
               </div>
             </Reveal>
-          ))}
+            );
+          })}
         </div>
 
         <Reveal>
@@ -300,45 +307,54 @@ const Home = () => {
       {/* ============ PAGE 9 — FUNDRAISING ============ */}
       <Page eyebrow={t('robotic.fundraising.eyebrow')}>
         <Reveal>
-          <h2 className="text-heading-2 font-bold font-orbitron mb-4">
+          <h2 className="text-heading-2 font-bold font-orbitron mb-10">
             <span className="gradient-text">{t('robotic.fundraising.title')}</span>
           </h2>
-          <h3 className="text-lg font-bold font-orbitron text-star-white mb-10">
-            {t('robotic.fundraising.useTitle')}
-          </h3>
         </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-14">
-          {tt('robotic.fundraising.buckets').map((b, i) => {
-            const Icon = fundraisingIcons[i];
-            return (
-              <Reveal key={b.title} delay={i * 0.08}>
-                <div className="card card-hover h-full">
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center gap-3">
-                      <div className="w-11 h-11 rounded-xl bg-neon-blue/10 border border-neon-blue/20 flex items-center justify-center">
-                        <Icon className="w-5 h-5 text-neon-blue" />
-                      </div>
-                      <h4 className="text-lg font-bold font-orbitron text-star-white">{b.title}</h4>
-                    </div>
-                    <span className="text-2xl font-bold font-orbitron gradient-text">{b.pct}</span>
-                  </div>
-                  <BulletList items={b.items} />
-                </div>
-              </Reveal>
-            );
-          })}
-        </div>
-
         <Reveal>
-          <div className="neon-border rounded-xl p-8 bg-space-dark/80">
-            <p className="text-caption font-orbitron text-neon-blue mb-2">
-              {t('robotic.fundraising.objective.eyebrow')}
-            </p>
-            <p className="text-heading-3 font-bold font-orbitron text-star-white">
-              {t('robotic.fundraising.objective.text')}
-            </p>
+          <div className="card overflow-hidden p-0 mb-8">
+            <div className="overflow-x-auto">
+              <table className="w-full border-collapse">
+                <thead>
+                  <tr>
+                    <th className="bg-neon-blue/15 border-b border-neon-blue/20 p-4 sm:p-5" />
+                    {tt('robotic.fundraising.table.columns').map((col) => (
+                      <th
+                        key={col}
+                        className="bg-neon-blue/15 border-b border-l border-neon-blue/20 p-4 sm:p-5 text-center text-caption sm:text-body font-orbitron tracking-[0.15em] text-neon-blue uppercase"
+                      >
+                        {col}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {tt('robotic.fundraising.table.rows').map((row) => (
+                    <tr key={row.label} className={row.highlight ? 'bg-neon-blue/5' : ''}>
+                      <td className="border-t border-white/10 p-4 sm:p-5 text-left text-body sm:text-body-large font-orbitron font-bold gradient-text uppercase tracking-wide">
+                        {row.label}
+                      </td>
+                      {row.values.map((v, j) => (
+                        <td
+                          key={j}
+                          className="border-t border-l border-white/10 p-4 sm:p-5 text-center text-lg sm:text-2xl font-bold font-orbitron text-star-white"
+                        >
+                          {v}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
+        </Reveal>
+
+        <Reveal delay={0.1}>
+          <p className="text-center text-heading-3 font-bold font-orbitron gradient-text">
+            {t('robotic.fundraising.table.total')}
+          </p>
         </Reveal>
       </Page>
 
@@ -352,9 +368,9 @@ const Home = () => {
 
         <div className="relative mb-14">
           {/* Timeline connecting line (desktop) */}
-          <div className="hidden lg:block absolute top-5 left-[12.5%] right-[12.5%] h-px bg-gradient-to-r from-neon-blue/0 via-neon-blue/50 to-neon-blue/0" />
+          <div className="hidden lg:block absolute top-5 left-[10%] right-[10%] h-px bg-gradient-to-r from-neon-blue/0 via-neon-blue/50 to-neon-blue/0" />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-x-6 gap-y-10">
             {tt('robotic.roadmap.milestones').map((r, i) => (
               <Reveal key={r.year} delay={i * 0.1}>
                 <div className="relative flex flex-col items-center text-center">
@@ -365,6 +381,9 @@ const Home = () => {
                   <div className="card card-hover h-full w-full">
                     <div className="text-2xl font-bold font-orbitron gradient-text mb-3">{r.year}</div>
                     <p className="text-star-white font-montserrat font-semibold">{r.label}</p>
+                    {r.desc && (
+                      <p className="text-body-small text-gray-400 font-montserrat mt-2">{r.desc}</p>
+                    )}
                   </div>
                 </div>
               </Reveal>
@@ -388,31 +407,56 @@ const Home = () => {
       </Page>
 
       {/* ============ PAGE 12 — CLOSING ============ */}
-      <section className="relative min-h-screen flex items-center px-6 sm:px-10 lg:px-[10%] py-24">
-        <div className="max-w-4xl mx-auto text-center">
-          <Reveal>
-            <div className="flex items-center justify-center gap-3 mb-8">
-              <div className="w-12 h-12 rounded-2xl bg-neon-blue/10 border border-neon-blue/30 flex items-center justify-center">
-                <Bot className="w-6 h-6 text-neon-blue" />
-              </div>
-              <span className="text-caption font-orbitron text-neon-blue tracking-[0.4em]">
-                {t('robotic.closing.brand')}
-              </span>
-            </div>
-            <h2 className="text-heading-2 font-bold font-orbitron mb-8">
-              <span className="gradient-text">{t('robotic.closing.title')}</span>
-            </h2>
-            <div className="space-y-2 text-body-large text-gray-300 font-montserrat mb-10">
-              <p>{t('robotic.closing.line1')}</p>
-              <p className="text-star-white font-semibold">{t('robotic.closing.line2')}</p>
-            </div>
-            <div className="inline-flex items-center gap-2 text-heading-3 font-bold font-orbitron text-star-white">
-              {t('robotic.closing.cta')}
-              <ArrowRight className="w-6 h-6 text-neon-blue" />
-            </div>
-          </Reveal>
+      {/* ============ PAGE 7 — PERSONNALISATION ============ */}
+      <Page eyebrow={t('robotic.customization.eyebrow')}>
+        <Reveal>
+          <h2 className="text-heading-2 font-bold font-orbitron mb-4">
+            <span className="gradient-text">{t('robotic.customization.title')}</span>
+          </h2>
+          <p className="text-body-large text-gray-300 font-montserrat max-w-3xl mb-12">
+            {t('robotic.customization.intro')}
+          </p>
+        </Reveal>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {tt('robotic.customization.cards').map((c, i) => (
+            <Reveal key={c.title} delay={i * 0.08}>
+              <IconCard icon={customizationIcons[i]} title={c.title} desc={c.desc} />
+            </Reveal>
+          ))}
         </div>
-      </section>
+      </Page>
+
+      {/* ============ PAGE 8 — ÉQUIPE FONDATRICE ============ */}
+      <Page eyebrow={t('robotic.team.eyebrow')}>
+        <Reveal>
+          <h2 className="text-heading-2 font-bold font-orbitron mb-4">
+            <span className="gradient-text">{t('robotic.team.title')}</span>
+          </h2>
+          <p className="text-body-large text-gray-300 font-montserrat max-w-3xl mb-12">
+            {t('robotic.team.intro')}
+          </p>
+        </Reveal>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {tt('robotic.team.members').map((m, i) => (
+            <Reveal key={i} delay={i * 0.1}>
+              <div className="card card-hover h-full flex flex-col items-center text-center">
+                <div className="w-20 h-20 rounded-full bg-neon-blue/10 border border-neon-blue/30 flex items-center justify-center mb-5 shadow-[0_0_18px_rgba(0,217,255,0.25)]">
+                  <span className="text-2xl font-bold font-orbitron gradient-text">
+                    {m.name.split(' ').map((w) => w[0]).join('').slice(0, 2).toUpperCase()}
+                  </span>
+                </div>
+                <h3 className="text-lg font-bold font-orbitron text-star-white mb-1">{m.name}</h3>
+                <p className="text-caption font-orbitron text-neon-blue tracking-[0.15em] uppercase mb-3">
+                  {m.role}
+                </p>
+                <p className="text-body-small text-gray-400 font-montserrat">{m.bio}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </Page>
     </div>
   );
 };

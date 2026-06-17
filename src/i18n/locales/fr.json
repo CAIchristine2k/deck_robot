@@ -15,7 +15,8 @@
         { "title": "Pénurie de main-d'œuvre", "desc": "Recruter devient de plus en plus difficile." },
         { "title": "Turnover massif", "desc": "Difficulté à fidéliser les équipes." },
         { "title": "Contraintes réglementaires", "desc": "Une pression réglementaire croissante." },
-        { "title": "Baisse de productivité", "desc": "Un service parfois dégradé." }
+        { "title": "Baisse de productivité", "desc": "Un service parfois dégradé." },
+        { "title": "Erreurs humaines", "desc": "Là où l'humain se fatigue, les robots font moins d'erreurs." }
       ],
       "restaurant": {
         "title": "Dans la restauration",
@@ -29,11 +30,11 @@
       }
     },
     "solution": {
-      "eyebrow": "PAGE 4 — LA SOLUTION",
+      "eyebrow": "PAGE 3 — LA SOLUTION",
       "title": "L'EMPLOYÉ ROBOTIQUE IA",
       "subtitle": "Le premier employé robotique connecté à l'ensemble du système de l'entreprise.",
       "capabilitiesTitle": "Capabilités",
-      "capabilities": ["Accueil client", "Service", "Nettoyage", "Fidélisation", "Supervision temps réel"],
+      "capabilities": ["Accueil client", "Service", "Nettoyage", "Fidélisation", "Encaissement client"],
       "connected": {
         "title": "Une main-d'œuvre connectée",
         "intro": "Le robot ne travaille pas seul. Il est connecté à un écosystème connecté :",
@@ -42,7 +43,7 @@
       }
     },
     "market": {
-      "eyebrow": "PAGE 5 — OPPORTUNITÉ DE MARCHÉ",
+      "eyebrow": "PAGE 4 — OPPORTUNITÉ DE MARCHÉ",
       "title": "Un marché immense et inexploité",
       "intro": "Nous commençons par la restauration, un secteur confronté à une pénurie structurelle de main-d'œuvre et à une pression croissante sur les coûts salariaux.",
       "regions": [
@@ -61,6 +62,14 @@
           "potential": "Potentiel : 320 000 robots",
           "hardware": { "title": "Revenus Hardware", "lines": ["Prix moyen : 45 000 €", "Marché adressable : 14,4 Md€"] },
           "leasing": { "title": "Revenus Leasing", "lines": ["900 €/mois par robot", "Revenu annuel récurrent : 3,46 Md€/an"] }
+        },
+        {
+          "name": "Monde",
+          "restaurants": "35 millions de restaurants",
+          "hypothesis": "Hypothèse : 1 robot pour 10 restaurants (10% d'adoption)",
+          "potential": "Potentiel : 3 500 000 robots",
+          "hardware": { "title": "Revenus Hardware", "lines": ["Prix moyen : 45 000 €", "Marché adressable : 157,5 Md€"] },
+          "leasing": { "title": "Revenus Leasing", "lines": ["900 €/mois par robot", "Revenu annuel récurrent : 37,8 Md€/an"] }
         }
       ],
       "vision": {
@@ -69,26 +78,26 @@
       }
     },
     "fundraising": {
-      "eyebrow": "PAGE 9 — LEVÉE DE FONDS",
-      "title": "Levée de 3 M€",
-      "useTitle": "Utilisation des fonds",
-      "buckets": [
-        { "pct": "40%", "title": "Matériel & Production", "items": ["Achat robots", "Achat composants", "Industrialisation", "Certifications", "Production"] },
-        { "pct": "30%", "title": "Logiciel & IA", "items": ["IA conversationnelle", "Vision IA", "Navigation", "Tableau de bord"] },
-        { "pct": "20%", "title": "Mise sur le marché", "items": ["Déploiement commercial", "Acquisition clients", "Démonstrateurs"] },
-        { "pct": "10%", "title": "Équipe", "items": ["Recrutements clés", "Opérations"] }
-      ],
-      "objective": {
-        "eyebrow": "Objectif",
-        "text": "Premiers robots commercialisés sous 6 à 8 mois."
+      "eyebrow": "PAGE 5 — LEVÉE DE FONDS",
+      "title": "Plan de levée",
+      "table": {
+        "columns": ["Allocation", "Montant"],
+        "rows": [
+          { "label": "Matériel & Production", "values": ["40%", "1,2 M€"] },
+          { "label": "Logiciel & IA", "values": ["30%", "900 K€"] },
+          { "label": "Mise sur le marché", "values": ["20%", "600 K€"] },
+          { "label": "Équipe", "values": ["10%", "300 K€"] }
+        ],
+        "total": "TOTAL : 3 M€"
       }
     },
     "roadmap": {
-      "eyebrow": "PAGE 11 — ROADMAP",
+      "eyebrow": "PAGE 6 — ROADMAP",
       "title": "Construire la main-d'œuvre du futur",
       "milestones": [
+        { "year": "2026 Q3", "label": "Première commande France" },
         { "year": "2026 Q4", "label": "Prototype V1" },
-        { "year": "2027 Q1", "label": "Commercialisation France" },
+        { "year": "2027 Q1", "label": "Commercialisation France", "desc": "Livraison des premiers robots en France." },
         { "year": "2027 Q3", "label": "Expansion Europe" },
         { "year": "2028 Q1", "label": "Expansion Monde" }
       ],
@@ -97,12 +106,26 @@
         "text": "1 million d'employés autonomes dans le monde avant 2030."
       }
     },
-    "closing": {
-      "brand": "ROBOTIC",
-      "title": "Le système d'exploitation du travail autonome",
-      "line1": "L'intelligence artificielle a révolutionné le travail numérique.",
-      "line2": "ROBOTIC révolutionnera le travail physique.",
-      "cta": "Rejoignez-nous pour construire la main-d'œuvre du futur"
+    "customization": {
+      "eyebrow": "PAGE 7 — PERSONNALISATION",
+      "title": "Une solution robot IA sur mesure",
+      "intro": "Chaque robot ROBOTIC s'adapte à votre activité, votre marque et vos outils — pour devenir un véritable membre de votre équipe.",
+      "cards": [
+        { "title": "Adapté à votre secteur", "desc": "Comportements et tâches configurés selon votre métier : restauration, hôtellerie, logistique." },
+        { "title": "À vos couleurs", "desc": "Voix, langue, apparence et identité visuelle aux couleurs de votre marque." },
+        { "title": "Intégré à vos outils", "desc": "Connexion à vos systèmes existants : caisse, CRM, réservations, paiements." },
+        { "title": "Évolutif", "desc": "Nouvelles compétences et mises à jour déployées à distance, en continu." }
+      ]
+    },
+    "team": {
+      "eyebrow": "PAGE 8 — L'ÉQUIPE",
+      "title": "L'équipe fondatrice",
+      "intro": "Une équipe qui réunit intelligence artificielle, robotique et exécution opérationnelle.",
+      "members": [
+        { "name": "Prénom Nom", "role": "Co-fondateur & CEO", "bio": "À compléter — parcours et expertise du fondateur." },
+        { "name": "Prénom Nom", "role": "Co-fondateur & CTO", "bio": "À compléter — parcours et expertise du fondateur." },
+        { "name": "Prénom Nom", "role": "Co-fondateur & COO", "bio": "À compléter — parcours et expertise du fondateur." }
+      ]
     }
   },
   "footer": {

@@ -15,7 +15,8 @@
         { "title": "Labor shortage", "desc": "Hiring is becoming increasingly difficult." },
         { "title": "Massive turnover", "desc": "Hard to retain teams." },
         { "title": "Regulatory constraints", "desc": "Growing regulatory pressure." },
-        { "title": "Declining productivity", "desc": "A sometimes degraded service." }
+        { "title": "Declining productivity", "desc": "A sometimes degraded service." },
+        { "title": "Human errors", "desc": "Where humans tire out, robots make fewer mistakes." }
       ],
       "restaurant": {
         "title": "In the restaurant industry",
@@ -29,11 +30,11 @@
       }
     },
     "solution": {
-      "eyebrow": "PAGE 4 — THE SOLUTION",
+      "eyebrow": "PAGE 3 — THE SOLUTION",
       "title": "ROBOTIC AI WORKER",
       "subtitle": "The first robotic employee connected to the company's entire system.",
       "capabilitiesTitle": "Capabilities",
-      "capabilities": ["Customer welcome", "Service", "Cleaning", "Loyalty", "Real-time supervision"],
+      "capabilities": ["Customer welcome", "Service", "Cleaning", "Loyalty", "Customer checkout"],
       "connected": {
         "title": "Connected Workforce",
         "intro": "The robot doesn't work alone. It is connected to a connected ecosystem:",
@@ -42,7 +43,7 @@
       }
     },
     "market": {
-      "eyebrow": "PAGE 5 — MARKET OPPORTUNITY",
+      "eyebrow": "PAGE 4 — MARKET OPPORTUNITY",
       "title": "A Massive Untapped Market",
       "intro": "We start with the restaurant industry, a sector facing a structural labor shortage and growing pressure on labor costs.",
       "regions": [
@@ -61,6 +62,14 @@
           "potential": "Potential: 320,000 robots",
           "hardware": { "title": "Hardware Revenue", "lines": ["Average price: €45,000", "Addressable market: €14.4B"] },
           "leasing": { "title": "Leasing Revenue", "lines": ["€900/month per robot", "Annual recurring revenue: €3.46B/year"] }
+        },
+        {
+          "name": "World",
+          "restaurants": "35 million restaurants",
+          "hypothesis": "Assumption: 1 robot per 10 restaurants (10% adoption)",
+          "potential": "Potential: 3,500,000 robots",
+          "hardware": { "title": "Hardware Revenue", "lines": ["Average price: €45,000", "Addressable market: €157.5B"] },
+          "leasing": { "title": "Leasing Revenue", "lines": ["€900/month per robot", "Annual recurring revenue: €37.8B/year"] }
         }
       ],
       "vision": {
@@ -69,26 +78,26 @@
       }
     },
     "fundraising": {
-      "eyebrow": "PAGE 9 — FUNDRAISING",
-      "title": "Raising €3M",
-      "useTitle": "Use of funds",
-      "buckets": [
-        { "pct": "40%", "title": "Hardware & Production", "items": ["Robot purchasing", "Component purchasing", "Industrialization", "Certifications", "Production"] },
-        { "pct": "30%", "title": "Software & AI", "items": ["Conversational AI", "AI Vision", "Navigation", "Dashboard"] },
-        { "pct": "20%", "title": "Go To Market", "items": ["Commercial deployment", "Customer acquisition", "Demo units"] },
-        { "pct": "10%", "title": "Team", "items": ["Key hires", "Operations"] }
-      ],
-      "objective": {
-        "eyebrow": "Objective",
-        "text": "First robots on the market within 6 to 8 months."
+      "eyebrow": "PAGE 5 — FUNDRAISING",
+      "title": "Funding plan",
+      "table": {
+        "columns": ["Allocation", "Amount"],
+        "rows": [
+          { "label": "Hardware & Production", "values": ["40%", "€1.2M"] },
+          { "label": "Software & AI", "values": ["30%", "€900K"] },
+          { "label": "Go To Market", "values": ["20%", "€600K"] },
+          { "label": "Team", "values": ["10%", "€300K"] }
+        ],
+        "total": "TOTAL: €3M"
       }
     },
     "roadmap": {
-      "eyebrow": "PAGE 11 — ROADMAP",
+      "eyebrow": "PAGE 6 — ROADMAP",
       "title": "Building The Future Workforce",
       "milestones": [
+        { "year": "2026 Q3", "label": "First order in France" },
         { "year": "2026 Q4", "label": "Prototype V1" },
-        { "year": "2027 Q1", "label": "Commercial launch in France" },
+        { "year": "2027 Q1", "label": "Commercial launch in France", "desc": "First robots delivered in France." },
         { "year": "2027 Q3", "label": "European expansion" },
         { "year": "2028 Q1", "label": "Global expansion" }
       ],
@@ -97,12 +106,26 @@
         "text": "1 million autonomous employees worldwide before 2030."
       }
     },
-    "closing": {
-      "brand": "ROBOTIC",
-      "title": "The Operating System For Autonomous Work",
-      "line1": "Artificial intelligence revolutionized digital work.",
-      "line2": "ROBOTIC will revolutionize physical work.",
-      "cta": "Join us in building the future workforce"
+    "customization": {
+      "eyebrow": "PAGE 7 — CUSTOMIZATION",
+      "title": "A tailor-made AI robot solution",
+      "intro": "Every ROBOTIC robot adapts to your business, your brand and your tools — to become a true member of your team.",
+      "cards": [
+        { "title": "Tailored to your industry", "desc": "Behaviors and tasks configured for your business: restaurants, hospitality, logistics." },
+        { "title": "On-brand", "desc": "Voice, language, look and visual identity matched to your brand." },
+        { "title": "Integrated with your tools", "desc": "Connects to your existing systems: POS, CRM, reservations, payments." },
+        { "title": "Always evolving", "desc": "New skills and updates deployed remotely, continuously." }
+      ]
+    },
+    "team": {
+      "eyebrow": "PAGE 8 — THE TEAM",
+      "title": "The founding team",
+      "intro": "A team combining artificial intelligence, robotics and operational execution.",
+      "members": [
+        { "name": "First Last", "role": "Co-founder & CEO", "bio": "To be completed — founder background and expertise." },
+        { "name": "First Last", "role": "Co-founder & CTO", "bio": "To be completed — founder background and expertise." },
+        { "name": "First Last", "role": "Co-founder & COO", "bio": "To be completed — founder background and expertise." }
+      ]
     }
   },
   "footer": {

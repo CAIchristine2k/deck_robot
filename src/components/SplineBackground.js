@@ -3,6 +3,9 @@ import Spline from '@splinetool/react-spline';
 import { useLoading } from '../contexts/LoadingContext';
 import MobileStarBackground from './MobileStarBackground';
 
+// Toggle to show/hide the 3D robot (keeps the animated star background either way)
+const SHOW_ROBOT = false;
+
 const SplineBackground = ({ onLoad }) => {
   const containerRef = useRef(null);
   const [dimensions, setDimensions] = useState({
@@ -179,7 +182,7 @@ const SplineBackground = ({ onLoad }) => {
             zIndex: 1,
           }}
         >
-          {shouldRenderSpline && currentSceneUrl && (
+          {SHOW_ROBOT && shouldRenderSpline && currentSceneUrl && (
               <Spline
                 key={currentSceneUrl}
                 ref={splineRef}
@@ -257,7 +260,7 @@ const SplineBackground = ({ onLoad }) => {
           </div>
 
           {/* Branding badge (desktop only) */}
-          {!isMobile && (
+          {SHOW_ROBOT && !isMobile && (
             <div
               className="fixed z-[2] flex items-center justify-center bg-gradient-to-r from-neon-blue to-stellar-blue text-white font-orbitron font-bold tracking-[0.25em] text-sm rounded-tl-2xl shadow-lg shadow-neon-blue/30"
               style={{
